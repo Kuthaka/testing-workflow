@@ -1105,7 +1105,7 @@ function DocsPage() {
     ["ai","AI Engine"],["erp","ERP System"],["teacher","Teacher Flow"],
     ["community","Community & Chat"],["architecture","Architecture"],
     ["stack","Tech Stack"],["folder","Folder Structure"],["scale","Scalability"],
-    ["roadmap","Roadmap"],
+    ["roadmap","Roadmap"], ["completion","Phase 1: Completion (10 Modules)"],
   ];
 
   const content = {
@@ -1113,9 +1113,9 @@ function DocsPage() {
       title:"Platform Overview",
       body:(
         <>
-          <p>Ebenex is a full-stack, AI-powered German language learning platform combining the engagement of consumer apps like Duolingo with enterprise-grade ERP capabilities for language institutes.</p>
+          <p>Ebenex is a unified digital platform serving two deeply connected markets: a high-fidelity <strong>Student Learning Platform</strong> and a comprehensive <strong>Agency ERP System</strong> for study coordination.</p>
           <h3>Four Primary User Roles</h3>
-          <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, margin:"16px 0" }}>
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:12, margin:"16px 0" }}>
             {[["🎓 Student","Self-paced German learning, AI coaching, gamification, certificates, and institute enrollment.",C.accent],["👨‍🏫 Teacher","Solo or institute-linked teaching with course creation, live classes, and student analytics.",C.purple],["🏫 Institute","B2B ERP plan to manage students, teachers, classes, exams, communities, and visa guidance.",C.rose],["⚙️ Admin","Platform-level moderation, user management, analytics, billing, and system config.",C.amber]].map(([t,d,c])=>(
               <Card key={t} style={{ borderColor:`${c}33` }}>
                 <div style={{ color:c, fontWeight:700, fontSize:14, marginBottom:8 }}>{t}</div>
@@ -1285,6 +1285,123 @@ Revocation:    Redis blocklist for immediate invalidation`}</pre>
               </div>
             </div>
           ))}
+        </>
+      )
+    },
+    completion: {
+      title: "Phase 1: Completion Roadmap (10 Modules)",
+      body: (
+        <>
+          <div style={{ background:`${C.accent}12`, border:`1px solid ${C.accent}33`, borderRadius:12, padding:20, marginBottom:32 }}>
+            <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
+              <div style={{ fontFamily:"'Syne',sans-serif", fontWeight:800, fontSize:22, color:C.accent }}>Phase 1: Foundation & Core Experience</div>
+              <Badge color={C.green}>BUILDING NOW</Badge>
+            </div>
+            <p style={{ marginTop:12, color:C.textDim, fontSize:14 }}>Following the <strong>Edu ERP Developer Reference v2.0</strong>, Phase 1 focuses on a full rebuild of the unified Learning Platform + Agency ERP System. All Agentic AI and Adaptive features are reserved for Phase 2.</p>
+          </div>
+          
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:16 }}>
+            {[
+              { 
+                idx: "M01",
+                module: "Unified Identity & RBAC", 
+                status: "100%",
+                items: ["Multi-tenant Auth system", "Role-based Access Control", "JWT + Opaque Token Rotation", "Cross-Product Identity Sharing"],
+                color: C.accent 
+              },
+              { 
+                idx: "M02",
+                module: "Global Design System", 
+                status: "95%",
+                items: ["Premium React UI Library", "Responsive Liberal Layouts", "Dark/Light Mode Tokens", "Motion & Interaction Schema"],
+                color: C.blue 
+              },
+              { 
+                idx: "M03",
+                module: "Student Journey & Onboarding", 
+                status: "80%",
+                items: ["CEFR Alignment Mapping", "Self-paced Onboarding Flow", "Document Collection Engine", "KYC / Profile Verification"],
+                color: C.green 
+              },
+              { 
+                idx: "M04",
+                module: "Learning Management (LMS)", 
+                status: "60%",
+                items: ["Lesson Player Architecture", "Course Resource Delivery", "Interactive Exercise Types", "Progress Persistence Layer"],
+                color: C.purple 
+              },
+              { 
+                idx: "M05",
+                module: "ERP: Agency-Student Core", 
+                status: "40%",
+                items: ["B2B Agency Dashboards", "Student Management Vault", "Document Management System", "Internal Agency Audit Logs"],
+                color: C.rose 
+              },
+              { 
+                idx: "M06",
+                module: "ERP: Operations & Logistics", 
+                status: "20%",
+                items: ["Exam Registration Flow", "Accommodation Allocation", "Visa Tracking Pipeline", "Logistics Coordination Hub"],
+                color: C.amber 
+              },
+              { 
+                idx: "M07",
+                module: "Unified Payment Gateway", 
+                status: "0%",
+                items: ["Stripe Subscription Billing", "Agency Invoice Generation", "Split Payout Logic", "Webhooks & Reconcilliation"],
+                color: C.cyan 
+              },
+              { 
+                idx: "M08",
+                module: "Gamification & Achievement", 
+                status: "0%",
+                items: ["Daily Streaks & XP Engine", "Badge Issuance Logic", "League & Leaderboards", "PDF Certificate Generation"],
+                color: C.pink 
+              },
+              { 
+                idx: "M09",
+                module: "Community & Real-time", 
+                status: "0%",
+                items: ["WebSocket Chat Infrastructure", "Agency-Student Channels", "Announcements & Feed", "Push Notification Center"],
+                color: C.indigo 
+              },
+              { 
+                idx: "M10",
+                module: "Infrastructure & DevOps", 
+                status: "0%",
+                items: ["Multi-tenant DB Isolation", "Docker + K8s Orchestration", "CI/CD Deployment Pipelines", "Auto-scaling & Monitoring"],
+                color: C.textDim 
+              }
+            ].map((m) => (
+              <div key={m.idx} style={{ background:C.bgSurface, border:`1px solid ${C.border}`, borderRadius:16, padding:18, position:"relative", overflow:"hidden" }}>
+                <div style={{ position:"absolute", top:-12, right:-10, fontSize:72, fontWeight:900, opacity:0.04, color:m.color, pointerEvents:"none" }}>{m.idx.slice(1)}</div>
+                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14 }}>
+                  <div style={{ fontFamily:"'Syne',sans-serif", fontWeight:700, fontSize:15, color:m.color }}>{m.module}</div>
+                  <div style={{ fontSize:11, fontWeight:800, color:m.color }}>{m.status}</div>
+                </div>
+                <div style={{ height:4, background:`${m.color}18`, borderRadius:99, marginBottom:16 }}>
+                  <div style={{ height:"100%", width:m.status, background:m.color, borderRadius:99, transition:"width 1s ease" }} />
+                </div>
+                <div style={{ display:"flex", flexDirection:"column", gap:6 }}>
+                  {m.items.map(item => (
+                    <div key={item} style={{ fontSize:12, color:C.textMuted, display:"flex", gap:8, alignItems:"center" }}>
+                      <div style={{ width:4, height:4, borderRadius:"50%", background:m.color }} />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop:40, padding:32, textAlign:"center", border:`1px dashed ${C.border}`, borderRadius:24, background:C.bg }}>
+            <div style={{ fontSize:32, marginBottom:16 }}>⚡</div>
+            <h2 style={{ fontFamily:"'Syne',sans-serif", fontWeight:800, fontSize:28, letterSpacing:-1, marginBottom:12 }}>Phase 2: Agentic AI Integration</h2>
+            <p style={{ color:C.textMuted, fontSize:15, maxWidth:500, margin:"0 auto" }}>
+              Adaptive learning engines, AI-powered pronunciation, agentic lesson generation, and multi-language agency expansion.
+            </p>
+            <div style={{ display:"inline-block", marginTop:24, background:`${C.amber}18`, color:C.amber, padding:"6px 20px", borderRadius:20, fontSize:13, fontWeight:700, letterSpacing:1 }}>COMING SOON</div>
+          </div>
         </>
       )
     },
